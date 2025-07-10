@@ -480,7 +480,7 @@ async def start_func(update: Update, context: ContextTypes.DEFAULT_TYPE):
         ],
         [
             InlineKeyboardButton("💰 𝗧𝗮𝘅𝗮𝘀", callback_data="registro_taxas"),
-            InlineKeyboardButton("🙋‍♂ 𝗔𝗷𝘂𝗱𝗮", callback_data="registro_ajuda")
+            InlineKeyboardButton("🙋‍♂ 𝗔𝗷𝘂𝗱𝗮", url=f"https://t.me/{manager.get_registro_support() or 'suporte'}")
         ]
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)
