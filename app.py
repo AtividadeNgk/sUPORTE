@@ -433,14 +433,17 @@ async def receive_token_register(update: Update, context: ContextTypes.DEFAULT_T
                 # Inicia o bot
                 start_bot(new_token, bot_id)
                 
+                # Cria o botão de acessar o bot
+                keyboard = [[InlineKeyboardButton("𝗔𝗰𝗲𝘀𝘀𝗮𝗿 𝗕𝗼𝘁", url=f"https://t.me/{bot_username}")]]
+                reply_markup = InlineKeyboardMarkup(keyboard)
+                
                 await update.message.reply_text(
-                    f'✅ <b>Bot cadastrado com sucesso!</b>\n\n'
-                    f'<b>Nome:</b> {bot_name}\n'
-                    f'<b>Username:</b> @{bot_username}\n'
-                    f'<b>ID:</b> {bot_id}\n\n'
-                    f'🔗 Link: t.me/{bot_username}\n\n'
-                    f'✨ Seu bot já está online e funcionando!',
-                    parse_mode='HTML'
+                    f'✅ <b>Bot cadastrado com sucesso!</b> Sua máquina de dinheiro já está online 🥂\n\n'
+                    f'📝 Nome: {bot_name}\n'
+                    f'👤 Username: @{bot_username}\n'
+                    f'📦 ID: {bot_id}',
+                    parse_mode='HTML',
+                    reply_markup=reply_markup
                 )
             else:
                 await update.message.reply_text(
