@@ -471,6 +471,9 @@ async def start_func(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "O que você deseja fazer?"
     )
     
+    # Pega o username do suporte
+    support_username = manager.get_registro_support()
+    
     # Botões do menu
     keyboard = [
         [InlineKeyboardButton("📦 𝗖𝗮𝗱𝗮𝘀𝘁𝗿𝗮𝗿 𝗕𝗼𝘁", callback_data="registro_cadastrar")],
@@ -480,7 +483,7 @@ async def start_func(update: Update, context: ContextTypes.DEFAULT_TYPE):
         ],
         [
             InlineKeyboardButton("💰 𝗧𝗮𝘅𝗮𝘀", callback_data="registro_taxas"),
-            InlineKeyboardButton("🙋‍♂ 𝗔𝗷𝘂𝗱𝗮", url=f"https://t.me/{manager.get_registro_support() or 'suporte'}")
+            InlineKeyboardButton("🙋‍♂ 𝗔𝗷𝘂𝗱𝗮", url=f"https://t.me/{support_username or 'suporte'}")
         ]
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)
