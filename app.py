@@ -676,6 +676,9 @@ async def mostrar_menu_principal(message, user):
         "O que você deseja fazer?"
     )
     
+    # Pega o username do suporte
+    support_username = manager.get_registro_support()
+    
     keyboard = [
         [InlineKeyboardButton("📦 𝗖𝗮𝗱𝗮𝘀𝘁𝗿𝗮𝗿 𝗕𝗼𝘁", callback_data="registro_cadastrar")],
         [
@@ -684,7 +687,7 @@ async def mostrar_menu_principal(message, user):
         ],
         [
             InlineKeyboardButton("💰 𝗧𝗮𝘅𝗮𝘀", callback_data="registro_taxas"),
-            InlineKeyboardButton("🙋‍♂ 𝗔𝗷𝘂𝗱𝗮", callback_data="registro_ajuda")
+            InlineKeyboardButton("🙋‍♂ 𝗔𝗷𝘂𝗱𝗮", url=f"https://t.me/{support_username or 'suporte'}")
         ]
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)
